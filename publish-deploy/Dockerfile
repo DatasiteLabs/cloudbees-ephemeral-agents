@@ -1,5 +1,7 @@
 FROM openjdk:10-jdk-slim
 
+ARG token
+
 USER root
 
 # install build tools
@@ -24,8 +26,6 @@ RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.k
     && echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list \
     && apt-get update && apt-get install cf-cli
 
-# install the pivnet CLI to pull down content from Pivotal Network (the plugins we need)
-# RUN wget -q -O - https://github.com/pivotal-cf/pivnet-cli/releases/download/v0.0.57/pivnet-linux-amd64-0.0.57 \
-#     && PATH = /
-
 # install the plugins for Autoscaler & B/G Deployer
+RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
+    && cf install-plugin -f download
