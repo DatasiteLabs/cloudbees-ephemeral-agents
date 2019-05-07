@@ -1,4 +1,4 @@
-FROM openjdk:10-jdk-slim
+FROM openjdk:8-jdk-slim
 
 ARG token
 
@@ -6,6 +6,7 @@ USER root
 
 # install build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-transport-https \
     ca-certificates \
     curl \
     netbase \
