@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: ruby-node
+    image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:ruby-node
+    tty: true
+    command:
+    - cat
