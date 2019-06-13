@@ -7,3 +7,6 @@ spec:
       tty: true
       command:
       - cat
+  imagePullSecrets:
+  -   name: cbacr
+
