@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     vim \
     git \
+    jq \
+    tar \
+    gzip \
     gnupg \
     dirmngr \
     && rm -rf /var/lib/apt/lists/*

@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
   -   name: cfoundry
-      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:deploy-0.3
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:deploy-0.4
       tty: true
       command:
       - cat
