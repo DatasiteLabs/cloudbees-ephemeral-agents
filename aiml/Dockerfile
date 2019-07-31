@@ -2,6 +2,8 @@ FROM python:3.6.8-slim-stretch
 
 USER root
 
+RUN mkdir -p /usr/share/man/man1
+
 # install build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https \
@@ -13,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     gnupg \
     dirmngr \
+    openjdk-8-jre \
     && rm -rf /var/lib/apt/lists/*
 
 # install CF CLI
