@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gnupg \
     dirmngr \
     locales \
+    python-pip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i -e 's/# en-US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
