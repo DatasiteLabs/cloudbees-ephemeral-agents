@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN sed -i -e 's/# en-US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
-    update-local LANG=en_US.UTF-8
+    update-locale LANG=en_US.UTF-8
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
