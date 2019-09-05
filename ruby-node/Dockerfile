@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gnupg \
     dirmngr \
     locales \
+    python \
     python-pip \
     && rm -rf /var/lib/apt/lists/*
 
