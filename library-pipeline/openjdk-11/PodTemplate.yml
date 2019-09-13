@@ -5,14 +5,14 @@ kind: Pod
 spec:
   containers:
   -   name: javelin-common
-      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:mongo-JDK8
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:mongo-jdk11
       resources:
         limits:
           cpu: "1"
-          memory: "500Mi"
+          memory: "6Gi"
         requests:
           cpu: "0.5"
-          memory: "100Mi"
+          memory: "1Gi"
       command:
       - cat
       tty: true
