@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
   -   name: cfoundry
-      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:atlassian-node-jfrog
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:deploy-0.4-
       resources:
         limits:
           cpu: "1"
@@ -16,3 +16,4 @@ spec:
       - cat
   imagePullSecrets:
   -   name: cbacr
+

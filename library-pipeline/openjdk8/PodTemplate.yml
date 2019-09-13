@@ -1,0 +1,20 @@
+# This needs to be in your library source code repository!
+
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  -   name: javelin-common
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:mongo-JDK8
+      resources:
+        limits:
+          cpu: "1"
+          memory: "500Mi"
+        requests:
+          cpu: "0.5"
+          memory: "100Mi"
+      command:
+      - cat
+      tty: true
+  imagePullSecrets:
+  -   name: cbacr
