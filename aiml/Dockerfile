@@ -1,4 +1,4 @@
-FROM python:3.6.8-slim-stretch
+FROM python:3.6.9-slim-stretch
 
 USER root
 
@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gnupg \
     dirmngr \
     openjdk-8-jre \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 # install CF CLI
