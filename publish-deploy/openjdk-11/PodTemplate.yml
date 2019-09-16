@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
   -   name: cfoundry
-      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:deploy-0.-jdk11
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:deploy-0.4-jdk11
       resources:
         limits:
           cpu: "1"
