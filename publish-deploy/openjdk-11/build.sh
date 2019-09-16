@@ -41,4 +41,5 @@ if [ -z ${docker_path+x} ]; then docker_path=$(pwd); fi;
 
 access_token=$(curl -X POST https://network.pivotal.io/api/v2/authentication/access_tokens -d "{\"refresh_token\":\"$uaa_token\"}" -s 2>&1 | sed 's/{"access_token":"\(.*\)"}/\1/')
 docker build -t $docker_tag $docker_path --build-arg token=$access_token
-docker push $docker_tag
+sleep 5m # this kills the API credential that would appear in the container history by waiting for it to expire
+docker push $docker_tag # if you're pushing to a private repository, make sure you've taken care of whatever credentials you need!
