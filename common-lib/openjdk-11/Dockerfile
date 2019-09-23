@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     git \
     gnupg \
-    dirmngr
+    dirmngr \
+    gzip \
+    unzip
 
 # hacks to install Mongodb 4
 RUN apt update && \
