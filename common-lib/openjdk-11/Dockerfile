@@ -3,12 +3,18 @@ USER root
 
 # install build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-transport-https \
     ca-certificates \
     curl \
     netbase \
     wget \
     vim \
     git \
+    jq \
+    tar \
+    zip \
+    unzip \
+    gzip \
     gnupg \
     dirmngr
 
