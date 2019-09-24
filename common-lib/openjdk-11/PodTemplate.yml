@@ -5,7 +5,7 @@ kind: Pod
 spec:
   containers:
   -   name: javelin-common
-      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:common-lib-jdk11
+      image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:common-lib-0.5-jdk11
       resources:
         limits:
           cpu: "1"
