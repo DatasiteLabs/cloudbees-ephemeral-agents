@@ -42,7 +42,7 @@ RUN sed -i /etc/ssh/sshd_config \
 VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
-COPY setup-sshd /usr/local/bin/setup-sshd
+COPY setup-sshd.sh /usr/local/bin/setup-sshd
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
