@@ -1,5 +1,7 @@
 FROM python:3.6.9-slim-stretch
 
+ARG token
+
 USER root
 
 RUN mkdir -p /usr/share/man/man1
