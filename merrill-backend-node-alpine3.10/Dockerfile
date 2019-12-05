@@ -1,5 +1,5 @@
-FROM node:current-alpine
-LABEL maintainer "Your Name <first.last@merrillcorp.com>"
+FROM node:current-alpine3.10
+LABEL maintainer "Amit Kirdatt <amit.kirdatt@merrillcorp.com>"
 
 # install cURL, git, netbase, wget, and certificates
 RUN apk update && apk add \
@@ -25,18 +25,3 @@ RUN curl -fL https://getcli.jfrog.io | sh \
     && mv ./jfrog /usr/local/bin/jfrog \
     && chmod 776 /usr/local/bin/jfrog
 
-# Installing Chrome headless
-RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-    && echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
-    && apk add --no-cache \
-    chromium@edge \
-    harfbuzz@edge \
-    nss@edge \
-    && rm -rf /var/cache/* \
-    && mkdir /var/cache/apk
-
-# add Chrome env variables
-ENV CHROME_BIN=/usr/bin/chromium-browser \
-CHROME_PATH=/usr/lib/chromium/
-
-ENTRYPOINT [ "node" ]
