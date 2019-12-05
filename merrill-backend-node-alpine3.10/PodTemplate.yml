@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
   - name: cfoundry
-    image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:atlassian-node-jfrog
+    image: mrllus2cbacr.azurecr.io/merrillcorporation/cloudbees-ephemeral-agents:merrill-backend-node-alpine3.10
     resources:
       limits:
         cpu: "1"
