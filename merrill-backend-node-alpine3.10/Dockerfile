@@ -1,24 +1,12 @@
 FROM node:current-alpine3.10
 LABEL maintainer "Amit Kirdatt <amit.kirdatt@merrillcorp.com>"
 
-# install cURL, git, netbase, wget, and certificates
+# install cURL, git, and certificates
 RUN apk update && apk add \
     ca-certificates \
     curl \
-    netbase \
-    wget \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+    git
 
-# install the CF CLI
-RUN $ curl -L "https://cli.run.pivotal.io/stable?release=macosx64-binary&source=github" | tar -zx \
-    && mv cf /usr/local/bin
-
-# adding gnupg2 and dirmngr to handle gpg keys
-RUN apk update && apk add \
-    gnupg2 \
-    dirmngr \
-    && rm -rf /var/lib/apt/lists/*
 
 # Installing the Jfrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
