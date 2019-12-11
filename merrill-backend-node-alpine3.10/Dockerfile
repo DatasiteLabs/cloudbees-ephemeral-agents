@@ -7,7 +7,8 @@ RUN apk update && apk add \
     curl \
     git \
     python \
-    make
+    make \
+    bash
 
 
 # Installing the Jfrog CLI
