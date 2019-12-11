@@ -5,7 +5,9 @@ LABEL maintainer "Amit Kirdatt <amit.kirdatt@merrillcorp.com>"
 RUN apk update && apk add \
     ca-certificates \
     curl \
-    git
+    git \
+    python \
+    make
 
 
 # Installing the Jfrog CLI
