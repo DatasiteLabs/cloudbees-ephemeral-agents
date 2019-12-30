@@ -8,6 +8,7 @@ ARG gid=1000
 ARG JENKINS_AGENT_HOME=/home/${user}
 
 ENV JENKINS_AGENT_HOME ${JENKINS_AGENT_HOME}
+ENV JENKINS_SLAVE_SSH_PUBKEY ${JENKINS_SLAVE_SSH_PUBKEY}
 
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
@@ -42,7 +43,10 @@ RUN sed -i /etc/ssh/sshd_config \
 VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
-COPY setup-sshd.sh /usr/local/bin/setup-sshd
+COPY setup-sshd /usr/local/bin/setup-sshd
+
+RUN chmod 775 /usr/local/bin/setup-sshd
+RUN export PATH=/usr/local/bin/setup-sshd:$PATH
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
@@ -62,4 +66,4 @@ RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autosc
 
 EXPOSE 22
 
-ENTRYPOINT ["setup-sshd"]
+ENTRYPOINT ["/usr/local/bin/setup-sshd"]
