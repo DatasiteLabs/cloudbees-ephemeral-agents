@@ -30,7 +30,9 @@ RUN apt-get update \
     unzip \
     gnupg \
     dirmngr \
-    ruby \
+    build-essential \
+    zlib1g-dev \
+    ruby-full \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i /etc/ssh/sshd_config \
@@ -52,6 +54,12 @@ RUN export PATH=/usr/local/bin/setup-sshd:$PATH
 # Install ruby bundler
 RUN gem update --system
 RUN gem install bundler
+RUN mkdir "${JENKINS_AGENT_HOME}"/.ruby
+RUN echo "export GEM_HOME=/home/jenkins/.ruby" >> "${JENKINS_AGENT_HOME}"/.bashrc
+RUN echo "export PATH=$PATH:/home/jenkins/.ruby/bin" >> "${JENKINS_AGENT_HOME}"/.bashrc
+RUN chmod -R 775 /var/lib/gems/2.3.0/
+RUN chown -R jenkins:jenkins /var/lib/gems/2.3.0/
+RUN chown -R jenkins:jenkins /usr/local/bin/
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
