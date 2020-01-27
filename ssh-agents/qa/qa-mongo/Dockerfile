@@ -1,6 +1,5 @@
 FROM mongo:4.0
 
-ARG token='ab759ef126f5429a94bacfe316f6c6b5-r'
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
