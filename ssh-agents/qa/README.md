@@ -27,13 +27,3 @@ The script will check that your path is a valid one, or use the current director
 ### Token Walkthrough
 
 Sign into your Pivotal Network ("PivNet") account [here](https://network.pivotal.io/users/dashboard/edit-profile). On the initial landing page, click on the blue **REQUEST NEW REFRESH TOKEN** at the bottom of the page. Copy this token and save it in a safe place - I prefer [KeePass 2](https://keepass.info/), but you do you if you want to save it in a text file on your desktop (don't do this).
-
-## Common Errors
-
-### Unavailable for Legal Reasons
-
-**What happened?**
-The CLI Plugin version that you're trying to download is no longer a supported release, and you'll need to update the download URL.
-
-**How to Fix?**
-Head to https://network.pivotal.io/products/pcf-app-autoscaler/. From here, click on the info icon to the right of the version of the CLI Plugin you want to download. Copy the API download url from the popup that appears. Paste it onto Line 61 of the Dockerfile.

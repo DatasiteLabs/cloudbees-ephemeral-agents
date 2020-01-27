@@ -30,6 +30,9 @@ RUN apt-get update \
     unzip \
     gnupg \
     dirmngr \
+    build-essential \
+    zlib1g-dev \
+    ruby-full \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i /etc/ssh/sshd_config \
@@ -45,6 +48,19 @@ WORKDIR "${JENKINS_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
 
+RUN chmod 775 /usr/local/bin/setup-sshd
+RUN export PATH=/usr/local/bin/setup-sshd:$PATH
+
+# Install ruby bundler
+RUN gem update --system
+RUN gem install bundler
+RUN mkdir "${JENKINS_AGENT_HOME}"/.ruby
+RUN echo "export GEM_HOME=/home/jenkins/.ruby" >> "${JENKINS_AGENT_HOME}"/.bashrc
+RUN echo "export PATH=$PATH:/home/jenkins/.ruby/bin" >> "${JENKINS_AGENT_HOME}"/.bashrc
+RUN chmod -R 775 /var/lib/gems/2.3.0/
+RUN chown -R jenkins:jenkins /var/lib/gems/2.3.0/
+RUN chown -R jenkins:jenkins /usr/local/bin/
+
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
     && mv ./jfrog /usr/local/bin/jfrog \
@@ -58,9 +74,8 @@ RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=git
     && mv cf /usr/local/bin
 
 # install the plugins for Autoscaler & B/G Deployer
-# NOTE: If the build errors out, you may need to update the URL to a more recent version of the Autoscaler plugin!
-RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
-    && cf install-plugin -f download
+# RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
+#    && cf install-plugin -f download
 
 EXPOSE 22
 
