@@ -45,9 +45,6 @@ WORKDIR "${JENKINS_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
 
-RUN chmod 775 /usr/local/bin/setup-sshd
-RUN export PATH=/usr/local/bin/setup-sshd:$PATH
-
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
     && mv ./jfrog /usr/local/bin/jfrog \
@@ -61,6 +58,7 @@ RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=git
     && mv cf /usr/local/bin
 
 # install the plugins for Autoscaler & B/G Deployer
+# NOTE: If the build errors out, you may need to update the URL to a more recent version of the Autoscaler plugin!
 RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
     && cf install-plugin -f download
 
