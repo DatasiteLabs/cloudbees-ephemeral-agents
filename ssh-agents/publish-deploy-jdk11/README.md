@@ -4,7 +4,7 @@ This container is configured to build a Java service and push that service to PC
 
 ## Building
 
-To build publish-deploy, use the ./build.sh script.
+To build publish-deploy-jdk11, use the ./build.sh script.
 
 ### Required Parameters
 
@@ -14,7 +14,7 @@ To build publish-deploy, use the ./build.sh script.
 
 ### Script Walkthrough
 
-Before building, either navigate to the directory you want to use as your build context. If you're following this repo's structure, it'll be the _publish-deploy_ folder corresponding to the image you're building, so for example _cloudbees-ephemeral-agents/publish-deploy/openjkd-11_ to build the JDK11 image. Alternatively, you can save the path to the working directory as an environment variable or copy it to your clipboard. Once you have your path, run `./build.sh -p $YOUR_PATH -t $YOUR_TAG -u $YOUR_UAA_TOKEN_FROM_PIVOTAL`.
+run `./build.sh -p $YOUR_PATH -t $YOUR_TAG -u $YOUR_UAA_TOKEN_FROM_PIVOTAL`.
 
 The script will check that your path is a valid one, or use the current directory if you didn't include any values for -p. Next, it will perform the UAA authorization dance to swap your UAA token for a PivNet access token, a process described [here](https://network.pivotal.io/docs/api). Finally, it'll build the image and tag it, sleep long enough to expire the PivNet token that is stored in the base image, then push the image to your designated repository with `docker push`.
 

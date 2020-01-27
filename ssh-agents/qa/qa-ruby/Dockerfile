@@ -1,6 +1,5 @@
 FROM openjdk:11-jdk
 
-ARG token
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
