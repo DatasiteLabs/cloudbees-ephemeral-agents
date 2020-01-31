@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2990db74-ee30-4c02-835e-d641527044a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/build.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,55 +16,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/Dockerfile">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/build.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/build.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/publish-deploy-jdk8/build.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="46" lean-forward="true" selection-end-line="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="60" column="95" selection-start-line="60" selection-start-column="95" selection-end-line="60" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssh-agents/publish-deploy-jdk11/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="54" column="27" selection-end-line="67" />
+            <state relative-caret-position="84">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -87,6 +39,7 @@
         <option value="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/Dockerfile" />
         <option value="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/build.sh" />
         <option value="$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/build.sh" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -112,26 +65,6 @@
               <item name="cloudbees-ephemeral-agents" type="b2602c69:ProjectViewProjectNode" />
               <item name="cloudbees-ephemeral-agents" type="462c0819:PsiDirectoryNode" />
               <item name="ssh-agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudbees-ephemeral-agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudbees-ephemeral-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="ssh-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="Cloud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudbees-ephemeral-agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudbees-ephemeral-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="ssh-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="Cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="publish-deploy-jdk8" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudbees-ephemeral-agents" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cloudbees-ephemeral-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="ssh-agents" type="462c0819:PsiDirectoryNode" />
-              <item name="Cloud" type="462c0819:PsiDirectoryNode" />
-              <item name="publish-deploy-jdk11" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloudbees-ephemeral-agents" type="b2602c69:ProjectViewProjectNode" />
@@ -210,12 +143,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580406454378</updated>
-      <workItem from="1580406456036" duration="4463000" />
+      <workItem from="1580406456036" duration="4562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4463000" />
+    <option name="totallyTimeSpent" value="4562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -276,17 +209,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssh-agents/publish-deploy-jdk8/build.sh">
+    <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="46" lean-forward="true" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="347">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -297,10 +223,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk8/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/ssh-agents/Cloud/publish-deploy-jdk11/build.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        <state relative-caret-position="485">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssh-agents/publish-deploy-jdk8/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="46" lean-forward="true" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
