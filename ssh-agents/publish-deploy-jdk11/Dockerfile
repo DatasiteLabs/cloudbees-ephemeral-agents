@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk
+FROM jenkinsci/ssh-slave
 
 ARG token
 ARG user=jenkins
@@ -44,6 +44,7 @@ VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
+RUN chmod +x /usr/local/bin/setup-sshd
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
@@ -59,8 +60,8 @@ RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=git
 
 # install the plugins for Autoscaler & B/G Deployer
 # NOTE: If the build errors out, you may need to update the URL to a more recent version of the Autoscaler plugin!
-RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
-    && cf install-plugin -f download
+RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/p-spring-cloud-services/releases/558725/product_files/590427/download -H "Authorization: Bearer $token" \
+    && cf install-plugin -r CF-Community "spring-cloud-services" -f
 
 EXPOSE 22
 
