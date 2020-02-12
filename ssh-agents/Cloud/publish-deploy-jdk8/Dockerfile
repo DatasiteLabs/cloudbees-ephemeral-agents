@@ -27,7 +27,11 @@ RUN curl -fL https://getcli.jfrog.io | sh \
 #     && apt-get update && apt-get install cf-cli
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx \
     && mv cf /usr/local/bin
-# # install the plugins for config-server
+# Need to handhold jenkins user to be able to access the plugin being installed
+RUN mkdir /opt/cf; chown jenkins:jenkins /opt/cf
+USER jenkins
+ENV CF_HOME /opt/cf
+# install the plugins for config-server
 RUN cf install-plugin -r CF-Community "spring-cloud-services" -f
 EXPOSE 22
 ENTRYPOINT ["setup-sshd"]
