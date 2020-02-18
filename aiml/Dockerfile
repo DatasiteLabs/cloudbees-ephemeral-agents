@@ -1,7 +1,5 @@
 FROM python:3.6.9-slim-stretch
 
-ARG token
-
 USER root
 
 RUN mkdir -p /usr/share/man/man1
@@ -26,13 +24,20 @@ RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.k
     && echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list \
     && apt-get update && apt-get install cf-cli
 
-# install the plugins for Autoscaler & B/G Deployer
-RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
-    && cf install-plugin -f download
-
 # install stuff so preview-generator installs happily
-RUN apt-get install -y zlib1g-dev libjpeg-dev python3-pythonmagick inkscape xvfb poppler-utils libfile-mimeinfo-perl qpdf libimage-exiftool-perl ufraw-batch ffmpeg
+RUN apt-get update && apt-get install -y zlib1g-dev libjpeg-dev python3-pythonmagick inkscape xvfb poppler-utils libfile-mimeinfo-perl qpdf libimage-exiftool-perl ufraw-batch ffmpeg
 
 # Install cf v7 cli 
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=7.0.0-beta.27&source=github" | tar -zx \
     && mv cf7 /usr/local/bin
+
+# Install Jfrog
+RUN curl -fL https://getcli.jfrog.io | sh \
+    && mv ./jfrog /usr/local/bin/jfrog \
+    && chmod 776 /usr/local/bin/jfrog
+
+ARG token
+
+# install the plugins for Autoscaler & B/G Deployer
+RUN curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" \
+    && cf install-plugin -f download
