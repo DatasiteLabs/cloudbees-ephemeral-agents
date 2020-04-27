@@ -44,6 +44,11 @@ VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
+RUN chmod 755 /usr/local/bin/setup-sshd
+
+COPY app-autoscaler-plugin /home/jenkins
+COPY install-autoscaler.sh /home/jenkins
+RUN chmod 775 /home/jenkins/install-autoscaler.sh
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
@@ -51,11 +56,9 @@ RUN curl -fL https://getcli.jfrog.io | sh \
     && chmod +x /usr/local/bin/jfrog
 
 # install CF CLI
-# RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - \
-#     && echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list \
-#     && apt-get update && apt-get install cf-cli
-RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github" | tar -zx \
-    && mv cf /usr/local/bin
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - \
+     && echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list \
+     && apt-get update && apt-get install cf-cli && apt-get install cf7-cli
 
 # install the plugins for Autoscaler & B/G Deployer
 # NOTE: If the build errors out, you may need to update the URL to a more recent version of the Autoscaler plugin!
