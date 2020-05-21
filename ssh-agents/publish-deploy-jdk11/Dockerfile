@@ -13,8 +13,6 @@ ENV JENKINS_SLAVE_SSH_PUBKEY ${JENKINS_SLAVE_SSH_PUBKEY}
 RUN groupadd -g ${gid} ${group} && \
     useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
 
-COPY --chown=jenkins app-autoscaler-plugin-2.0.91 ${JENKINS_AGENT_HOME}
-
 # setup SSH server
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
@@ -60,7 +58,6 @@ RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.k
     apt-get update && sudo apt-get install cf-cli && apt-get install cf7-cli && \
     curl -O -fL -X GET https://network.pivotal.io/api/v2/products/pcf-app-autoscaler/releases/280907/product_files/292914/download -H "Authorization: Bearer $token" && \
     su - jenkins -c 'cf install-plugin -f download && cf install-plugin -f app-autoscaler-plugin'
-
 
 VOLUME ${JENKINS_AGENT_HOME}
 
