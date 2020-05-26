@@ -40,10 +40,11 @@ RUN sed -i /etc/ssh/sshd_config \
         -e 's/#LogLevel.*/LogLevel INFO/' && \
     mkdir /var/run/sshd
 
-VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
+VOLUME "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
+RUN chmod 755 /usr/local/bin/setup-sshd
 
 # install jFrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
@@ -59,7 +60,9 @@ RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=git
 
 # install the plugins for config-server
 # NOTE: If the build errors out, you may need to update the URL to a more recent version of the plugin!
-RUN cf install-plugin -r CF-Community "spring-cloud-services" -f
+RUN su - jenkins -c 'cf install-plugin -r CF-Community "spring-cloud-services" -f'
+
+VOLUME "${JENKINS_AGENT_HOME}"
 
 EXPOSE 22
 
