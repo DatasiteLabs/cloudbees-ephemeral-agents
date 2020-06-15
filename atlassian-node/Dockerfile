@@ -1,4 +1,4 @@
-FROM atlassianlabs/docker-node-jdk-chrome-firefox:2019-03-18
+FROM atlassianlabs/docker-node-jdk-chrome-firefox:2020-03-16
 
 # Installing the Jfrog CLI
 RUN curl -fL https://getcli.jfrog.io | sh \
